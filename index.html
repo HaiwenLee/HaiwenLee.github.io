@@ -2,78 +2,33 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>Haiwen Li, Shanghai Jiao Tong University</title>
+  <title>Haiwen Li | PhD Student @ SJTU</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
-    .about {
-      display: flex;
-      align-items: center;
-      gap: 30px;
+    :root {
+      --primary: #4f46e5;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --subtext: #6b7280;
     }
 
-    .avatar-left {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
+    * {
+      box-sizing: border-box;
     }
 
-    @media (max-width: 70px) {
-      .about {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-    
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
         Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: linear-gradient(120deg, #fdfbfb, #ebedee);
-      color: #333;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      color: #666;
-    }
-
-    section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    section h2 {
-      margin-top: 0;
-      border-left: 4px solid #4f46e5;
-      padding-left: 12px;
-    }
-
-    ul {
-      padding-left: 20px;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
     a {
-      color: #4f46e5;
+      color: var(--primary);
       text-decoration: none;
     }
 
@@ -81,16 +36,134 @@
       text-decoration: underline;
     }
 
-    footer {
-      text-align: center;
-      color: #888;
-      font-size: 0.9rem;
-      margin-top: 40px;
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
+    /* ---------- Hero ---------- */
+
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      margin-bottom: 80px;
+    }
+
+    .hero img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #e5e7eb;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      margin: 0 0 10px;
+    }
+
+    .hero p {
+      margin: 5px 0;
+      color: var(--subtext);
+    }
+
+    .keywords {
+      margin-top: 15px;
+    }
+
+    .keywords span {
+      display: inline-block;
+      background: #eef2ff;
+      color: var(--primary);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-right: 8px;
+      margin-bottom: 6px;
+    }
+
+    /* ---------- Section ---------- */
+
+    section {
+      margin-bottom: 70px;
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      border-left: 5px solid var(--primary);
+      padding-left: 12px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    /* ---------- Research ---------- */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .research-card h3 {
+      margin-top: 0;
+    }
+
+    /* ---------- Projects ---------- */
+
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    /* ---------- Timeline ---------- */
+
+    .timeline {
+      border-left: 3px solid #e5e7eb;
+      padding-left: 25px;
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -38px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+
+    /* ---------- Footer ---------- */
+
+    footer {
+      text-align: center;
+      color: var(--subtext);
+      font-size: 0.9rem;
+      margin-top: 80px;
+    }
+
+    /* ---------- Responsive ---------- */
+
+    @media (max-width: 700px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
       }
     }
   </style>
@@ -98,60 +171,111 @@
 
 <body>
   <div class="container">
-    <header>
-      <!img src="avatar.jpg" alt="Profile Photo" class="avatar">
-      <h1>Haiwen Li 👋</h1>
-      <p>Graduate Student, Electronic Science and Technology</p>
-    </header>
 
+    <!-- Hero -->
+    <div class="hero">
+      <!-- TODO: avatar.jpg -->
+      <img src="avatar.jpg" alt="Profile Photo">
+
+      <div>
+        <h1>Haiwen Li</h1>
+        <p>PhD Student · Electronic Science and Technology</p>
+        <p>Shanghai Jiao Tong University</p>
+
+        <div class="keywords">
+          <span>Distributed ML</span>
+          <span>Operator Learning</span>
+          <span>Spatio-temporal Data</span>
+          <span>Graph Learning</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
     <section>
-      <h2>🌟 About Me</h2>
-      <p>
-        Hi, I am currently a PhD student in Global College, Shanghai Jiao Tong University. I'm majoring in electronic science and technology. My research interests cover the broad areas of distributed physical machine learning systems. Currently I'm focusing on addressing challenges in spatio-temporal data non-uniformity, out-of-distribution generalization, and computational resource heterogeneity, across operator learning systems, graph-structured prediction systems, and time-series forecasting systems. 
-      </p>
+      <h2>About Me</h2>
+      <div class="card">
+        <p>
+          I am currently a PhD student at Global College, Shanghai Jiao Tong University.
+          My research focuses on distributed physical machine learning systems, with
+          particular interests in spatio-temporal data non-uniformity, out-of-distribution
+          generalization, and computational heterogeneity.
+        </p>
+      </div>
     </section>
 
+    <!-- Research -->
     <section>
-      <h2>🛠 Tech</h2>
-      <ul>
-        <li>HTML / CSS / JavaScript</li>
-        <li>Python / Java / C++</li>
-        <li>Git & GitHub</li>
-      </ul>
+      <h2>Research Interests</h2>
+      <div class="grid">
+        <div class="card research-card">
+          <h3>Distributed Operator Learning</h3>
+          <p>Scalable operator learning under heterogeneous and distributed environments.</p>
+        </div>
+
+        <div class="card research-card">
+          <h3>Spatio-temporal Modeling</h3>
+          <p>Learning robust representations from non-uniform spatio-temporal data.</p>
+        </div>
+
+        <div class="card research-card">
+          <h3>OOD Generalization</h3>
+          <p>Generalization across domains with distribution shifts.</p>
+        </div>
+      </div>
     </section>
 
+    <!-- Projects -->
     <section>
-      <h2>📂 Projects</h2>
-      <ul>
-        <li>
-          <strong>Project 1: </strong>
-          <a href="https://github.com/myusername/project1" target="_blank">
-            Project
-          </a>
-        </li>
-        <li>
-          <strong>Project 2: </strong>
-          <a href="https://github.com/myusername/project2" target="_blank">
-            Project
-          </a>
-        </li>
-      </ul>
+      <h2>Projects</h2>
+      <div class="grid">
+
+        <div class="card project-card">
+          <!-- TODO: project image -->
+          <img src="project1.jpg" alt="Project Image">
+          <h3>Project Title 1</h3>
+          <p>Short description of the project and its contribution.</p>
+          <a href="#">GitHub →</a>
+        </div>
+
+        <div class="card project-card">
+          <img src="project2.jpg" alt="Project Image">
+          <h3>Project Title 2</h3>
+          <p>Short description of the project and its contribution.</p>
+          <a href="#">GitHub →</a>
+        </div>
+
+      </div>
     </section>
 
+    <!-- Education -->
     <section>
-      <h2>📬 Contract Me </h2>
-      <p>
-        GitHub：
-        <a href="https://github.com/HaiwenLee" target="_blank">
-          github.com/HaiwenLee
-        </a>
-      </p>
-      <p>Email：lihaiwen@sjtu.edu.com</p>
+      <h2>Education</h2>
+      <div class="card timeline">
+        <div class="timeline-item">
+          <strong>202X – Present</strong><br>
+          PhD in Electronic Science and Technology, SJTU
+        </div>
+        <div class="timeline-item">
+          <strong>201X – 202X</strong><br>
+          Bachelor / Master Degree
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <h2>Contact</h2>
+      <div class="card">
+        <p>Email: lihaiwen@sjtu.edu.com</p>
+        <p>GitHub: <a href="https://github.com/HaiwenLee">github.com/HaiwenLee</a></p>
+      </div>
     </section>
 
     <footer>
-      © 2025 Your Name · Powered by GitHub Pages
+      © 2025 Haiwen Li · GitHub Pages
     </footer>
+
   </div>
 </body>
 </html>
